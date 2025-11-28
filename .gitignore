@@ -1,0 +1,8 @@
+.DS_Store
+*.pyc
+*.egg-info
+.github/workflows/
+*.swp
+tags
+node_modules
+__pycache__
