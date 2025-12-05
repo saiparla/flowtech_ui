@@ -123,7 +123,7 @@ const loginPage = () => {
                         smallCircle1.style.width = '100px';
                         smallCircle1.style.zIndex = '3';
                         smallCircle1.style.height = '100px';
-                        smallCircle1.style.background = '#2385C2';
+                        smallCircle1.style.background = '#3271C2';
                         smallCircle1.style.borderRadius = '50%';
 
 
@@ -165,7 +165,7 @@ const loginPage = () => {
                         welcomeText.style.letterSpacing = '3px'
                         welcomeText.style.fontWeight = '800'
                         welcomeText.style.margin = '0px auto 10px'
-                        welcomeText.style.color = screenWidth <= 770 ? '#2385c2' : '#fff'
+                        welcomeText.style.color = screenWidth <= 770 ? '#3271C2' : '#fff'
                         welcomeText.style.fontFamily = 'sans-serif'
                         welcomeText.style.textAlign = 'left'
 
@@ -173,7 +173,7 @@ const loginPage = () => {
                         paraText.innerHTML = 'Find your daily flow.';
                         paraText.style.fontSize = '13px'
                         paraText.style.margin = '0px'
-                        paraText.style.color = screenWidth <= 770 ? '#464545ff' : '#fff';
+                        paraText.style.color = screenWidth <= 770 ? '#2385c2' : '#fff';
                         paraText.style.fontWeight = '400';
                         paraText.style.fontFamily = 'sans-serif'
                         paraText.style.letterSpacing = '1px'
@@ -219,7 +219,7 @@ const loginPage = () => {
                     formContent.style.overflow = 'hidden';
 
                     const hippologo = document.createElement('img');
-                    hippologo.src = '/assets/flowtech_ui/images/samarpan.png';
+                    hippologo.src = '/assets/flowtech_ui/images/transparent_samarpan.png';
                     hippologo.style.width = screenWidth <= 770 ? '130px' : '170px';
                     hippologo.style.display = 'block';
                     hippologo.style.margin = 'auto';
@@ -248,7 +248,7 @@ const loginPage = () => {
                             const hippotext = poweredby.querySelector('a')
                             {
                                 if (hippotext) {
-                                    hippotext.style.color = '#2385c2';
+                                    hippotext.style.color = '#3271C2';
                                     hippotext.style.transition = '200ms';
 
                                     poweredby.addEventListener('mouseover', () => {
@@ -306,13 +306,13 @@ const loginPage = () => {
                                 }
                                 if (forgot) {
                                     forgot.style.transition = '200ms';
-                                    forgot.style.color = '#525252';
+                                    forgot.style.color = '#2385c2';
 
                                     forgot.addEventListener('mouseover', () => {
-                                        forgot.style.color = '#2385c2';
+                                        forgot.style.color = '#3271C2';
                                     })
                                     forgot.addEventListener('mouseout', () => {
-                                        forgot.style.color = '#525252';
+                                        forgot.style.color = '#2385c2';
                                     })
                                 }
 
@@ -320,15 +320,15 @@ const loginPage = () => {
                             }
                         }
                         if (loginbutton) {
-                            loginbutton.style.backgroundColor = '#2385c2';
+                            loginbutton.style.backgroundColor = '#3271C2';
                             loginbutton.style.borderRadius = '5px';
                             loginbutton.style.boxShadow = '0px 0px 5px grey';
 
                             loginbutton.addEventListener('mouseover', () => {
-                                loginbutton.style.backgroundColor = '#333333ff';
+                                loginbutton.style.backgroundColor = '#2385c2';
                             });
                             loginbutton.addEventListener('mouseout', () => {
-                                loginbutton.style.backgroundColor = '#2385c2';
+                                loginbutton.style.backgroundColor = '#3271C2';
                             })
                         }
                         const smallCircle1 = document.createElement('div');
@@ -338,8 +338,8 @@ const loginPage = () => {
                         smallCircle1.style.borderRadius = '50%';
                         smallCircle1.style.zIndex = '3';
 
-                        smallCircle1.style.bottom = screenWidth >= 770 ?'-15%' : '-18%';
-                        smallCircle1.style.right = screenWidth >= 770 ?'-15%' : '-18%';
+                        smallCircle1.style.bottom = screenWidth >= 770 ? '-15%' : '-18%';
+                        smallCircle1.style.right = screenWidth >= 770 ? '-15%' : '-18%';
 
                         smallCircle1.style.background = `
                                     radial-gradient(circle at 30% 30%, 
@@ -474,7 +474,7 @@ const forgotPage = () => {
                     smallCircle1.style.width = '90px';
                     smallCircle1.style.zIndex = '3';
                     smallCircle1.style.height = '90px';
-                    smallCircle1.style.background = '#2385C2';
+                    smallCircle1.style.background = '#3271C2';
                     smallCircle1.style.borderRadius = '50%';
 
 
@@ -516,7 +516,7 @@ const forgotPage = () => {
                     welcomeText.style.letterSpacing = '3px'
                     welcomeText.style.fontWeight = '800'
                     welcomeText.style.margin = '0px auto 10px'
-                    welcomeText.style.color = screenWidth <= 770 ? '#2385c2' : '#fff'
+                    welcomeText.style.color = screenWidth <= 770 ? '#3271C2' : '#fff'
                     welcomeText.style.fontFamily = 'sans-serif'
                     welcomeText.style.textAlign = 'left'
 
@@ -524,7 +524,7 @@ const forgotPage = () => {
                     paraText.innerHTML = 'Regain Your flow.';
                     paraText.style.fontSize = '13px'
                     paraText.style.margin = '0px'
-                    paraText.style.color = screenWidth <= 770 ? '#464545ff' : '#fff';
+                    paraText.style.color = screenWidth <= 770 ? '#2385c2' : '#fff';
                     paraText.style.fontWeight = '400';
                     paraText.style.fontFamily = 'sans-serif'
                     paraText.style.letterSpacing = '1px'
@@ -571,7 +571,7 @@ const forgotPage = () => {
                 formContent.style.boxShadow = screenWidth <= 770 ? '0px 0px 5px  grey' : 'none';
 
                 const hippologo = document.createElement('img');
-                hippologo.src = '/assets/flowtech_ui/images/samarpan.png';
+                hippologo.src = '/assets/flowtech_ui/images/transparent_samarpan.png';
                 hippologo.style.width = screenWidth <= 770 ? '140px' : '170px';
                 hippologo.style.display = 'block';
                 hippologo.style.margin = '0px auto 0px';
@@ -586,15 +586,15 @@ const forgotPage = () => {
                     const loginText = forgotBox.querySelector('.text-center.sign-up-message a');
                     // const poweredby = pagecardbody.querySelector('.social-logins.text-center');
                     if (loginText) {
-                        loginText.style.color = '#525252';
+                        loginText.style.color = '#2385c2';
                         loginText.style.transition = '200ms';
                         loginText.style.display = '200ms';
 
                         loginText.addEventListener('mouseover', () => {
-                            loginText.style.color = '#2385c2';
+                            loginText.style.color = '#3271C2';
                         });
                         loginText.addEventListener('mouseout', () => {
-                            loginText.style.color = '#525252';
+                            loginText.style.color = '#2385c2';
                         })
                         const poweredby = document.createElement('footer')
 
@@ -612,7 +612,7 @@ const forgotPage = () => {
                         const hippotext = poweredby.querySelector('a')
                         {
                             if (hippotext) {
-                                hippotext.style.color = '#2385c2';
+                                hippotext.style.color = '#3271C2';
                                 hippotext.style.transition = '200ms';
 
                                 poweredby.addEventListener('mouseover', () => {
@@ -638,15 +638,20 @@ const forgotPage = () => {
                             const emailinputfiled = emailfield.querySelector('input');
                             const emailinputfiledsvg = emailfield.querySelector('svg');
                             if (emailfield) {
-                                emailinputfiled.style.backgroundColor = '#ffff'
-                                emailinputfiled.style.marginTop = '3px'
+                                emailinputfiled.style.backgroundColor = 'transparent'
+                                emailinputfiled.style.marginTop = '15px'
                                 emailfield.style.border = 'none'
                                 emailfield.style.height = '30px'
-                                emailfield.style.borderRadius = '5px'
-                                emailfield.style.boxShadow = '0px 0px 5px grey';
+                                emailinputfiled.style.width = '99%'
+                                emailfield.style.alignItems = 'center'
+                                emailinputfiled.style.borderRadius = '5px'
+                                emailinputfiled.style.boxShadow = '0px 0px 5px grey';
+                                emailinputfiled.style.marginLeft = '2px';
+
                                 emailfield.style.marginBottom = '20px';
+                                // emailinputfiled.style.border = '2px solid red';
                                 if (emailinputfiledsvg) {
-                                    emailinputfiledsvg.style.marginTop = '1px';
+                                    emailinputfiledsvg.style.marginTop = '-1px';
                                     emailinputfiled.placeholder = 'Add your email here'
 
                                 }
@@ -660,7 +665,7 @@ const forgotPage = () => {
                         smallCircle1.style.width = '140px';
                         smallCircle1.style.zIndex = '3';
                         smallCircle1.style.height = '140px';
-                        smallCircle1.style.background = '#2385C2';
+                        smallCircle1.style.background = '#3271C2';
                         smallCircle1.style.borderRadius = '50%';
 
 
@@ -686,15 +691,15 @@ const forgotPage = () => {
 
                     }
                     if (forgotButton) {
-                        forgotButton.style.backgroundColor = '#2385c2';
+                        forgotButton.style.backgroundColor = '#3271C2';
                         forgotButton.style.borderRadius = '5px';
                         forgotButton.style.boxShadow = '0px 0px 5px grey';
 
                         forgotButton.addEventListener('mouseover', () => {
-                            forgotButton.style.backgroundColor = '#333333ff';
+                            forgotButton.style.backgroundColor = '#2385c2';
                         });
                         forgotButton.addEventListener('mouseout', () => {
-                            forgotButton.style.backgroundColor = '#2385c2';
+                            forgotButton.style.backgroundColor = '#3271C2';
                         })
                     }
 

@@ -26,11 +26,12 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/flowtech_ui/css/flowtech_ui.css"
-app_include_js = ["/assets/flowtech_ui/js/login.js","/assets/flowtech_ui/js/navbar.js"]
+app_include_js = ["/assets/flowtech_ui/js/login.js","/assets/flowtech_ui/js/navbar.js","/assets/flowtech_ui/js/deskpage.js"]
 
 # include js, css files in header of web template
-# web_include_css = "/assets/flowtech_ui/css/flowtech_ui.css"
-web_include_js =["/assets/flowtech_ui/js/login.js","/assets/flowtech_ui/js/navbar.js"]
+app_include_css = "/assets/flowtech_ui/css/sidebaricons.css"
+
+web_include_js =["/assets/flowtech_ui/js/login.js","/assets/flowtech_ui/js/navbar.js","/assets/flowtech_ui/js/deskpage.js"]
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "flowtech_ui/public/scss/website"

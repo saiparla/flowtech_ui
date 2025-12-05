@@ -7,28 +7,28 @@ const preloginNavbar = () => {
     }
     const navbar = document.querySelector('.navbar.navbar-light.navbar-expand-lg');
     if (navbar) {
-        navbar.style.backgroundColor = '#2385c2'
+        navbar.style.backgroundColor = '#3271C2'
         navbar.style.border = 'none';
         navbar.style.boxShadow = '0px 2px 5px #5252'
-        // navbar.style.height = '55px'
+        navbar.style.height = '50px'
         // navbar.style.position = 'relative'
 
         const logo = navbar.querySelector('.navbar-brand');
 
         if (navbar) {
             if (logo) {
-                // logo.style.backgroundColor = '#fff'
-                // logo.style.borderRadius = '5px'
+                logo.style.backgroundColor = '#fff'
+                logo.style.borderRadius = '5px'
                 // logo.style.position = 'absolute'
-                // logo.style.height = '90%';
-                // logo.style.width = 'max-content';
+                // logo.style.height = '100%';
+                logo.style.width = 'max-content';
                 // logo.style.marginTop = '2px';
-                // logo.style.alignContent = 'center';
+                logo.style.alignContent = 'center';
 
 
                 logo.innerHTML = `
-                                <img src="/assets/flowtech_ui/images/samarpan.png" alt="flowtech logo">
-                                        
+                              
+                                <img src="/assets/flowtech_ui/images/transparent_samarpan.png" alt="flowtech logo" style="display:block;width:135px;">
                                 `;
             }
 
@@ -43,7 +43,7 @@ const postLoginNavbar = () => {
         Array.from(navbars).forEach(nav => {
             if (nav.classList.contains('navbar-expand')) {
                 // nav.style.background = 'linear-gradient(90deg,#007e85 0%,#007e85dc 30%,#007e85d8 60%,#007e85dc 80%,#007e85 100%)';
-                nav.style.backgroundColor = '#2385c2';
+                nav.style.backgroundColor = '#3271C2';
                 nav.style.boxShadow = '0px 2px 5px #5252';
                 nav.style.height = '50px'
 
@@ -54,8 +54,8 @@ const postLoginNavbar = () => {
                     if (logo) {
                         logo.style.marginTop = '6px'
                         logo.innerHTML = `
-                                        <span style="padding:1px; border-radius:5px; display:inline-block;align-content:center;width:max-content;height:auto">
-                                <img src="/assets/flowtech_ui/images/samarpan.png" alt="flowtech logo" style="width:170px;display:block; border-radius:5px;">
+                                        <span style="padding:1px; border-radius:5px; display:inline-block;align-content:center;width:max-content;height:auto;background:#ffff;">
+                                <img src="/assets/flowtech_ui/images/transparent_samarpan.png" alt="flowtech logo" style="display:block;">
                                 </span>
                                         `;
 
@@ -135,14 +135,13 @@ const notificationstab = (navSubdiv) => {
                     const active = dropdownHead.querySelector('.notifications-category.active');
                     if (active) {
 
-                        active.style.color = '#2385c2';
-                        active.style.borderBottom = '1px solid #2385c2';
+                        active.style.color = '#3271C2';
+                        active.style.borderBottom = '1px solid #3271C2';
                         active.style.transition = 'color 0.5s, border-bottom 0.5s';
                     }
                 };
                 applyStyles();
 
-                // mutation observer created here to make the changes dynamically
                 const observer = new MutationObserver(() => {
                     applyStyles();
                 });
@@ -191,37 +190,95 @@ const helpsection = (navSubdiv) => {
         }
     }
     const helpDropdown = helpSection.querySelector('.dropdown-menu.dropdown-menu-right')
+    const dropdownitem = helpSection.querySelectorAll('.dropdown-item')
     if (helpDropdown) {
         helpDropdown.style.marginTop = '18px';
         helpDropdown.style.boxShadow = '0px 0px 7px grey';
         helpDropdown.style.borderRadius = '5px'
         helpDropdown.style.backgroundColor = '#fff'
+        if (dropdownitem) {
+            dropdownitem.forEach(item => {
+                item.style.color = '#383838';
+                item.style.borderRadius = '5px';
+
+                item.addEventListener('mouseenter', () => {
+                    item.style.color = '#fff';
+                    item.style.background = 'linear-gradient(135deg, #3271C2, #163E76)'
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    item.style.background = '';
+                    item.style.color = '#383838';
+
+                });
+            });
+        }
     }
 }
 
 const avatar = (navSubdiv) => {
-    const avatarsection = navSubdiv.querySelector('.nav-item.dropdown.dropdown-navbar-user.dropdown-mobile')
-    if (avatarsection) {
-        const button = avatarsection.querySelector('.btn-reset.nav-link')
-        const dropdown = avatarsection.querySelector('.dropdown-menu.dropdown-menu-right')
-        if (button) {
-            const avtarbtn = button.querySelector('.avatar.avatar-medium div')
-            if (avtarbtn) {
-                avtarbtn.style.backgroundColor = '#fff'
-                avtarbtn.style.color = '#464545ff'
-                avtarbtn.style.textTransform = 'uppercase '
-                avtarbtn.style.fontWeight = '500'
+    const avatarsection = navSubdiv.querySelector('.nav-item.dropdown.dropdown-navbar-user.dropdown-mobile');
+    if (!avatarsection) return;
 
-            }
-        }
-        if (dropdown) {
-            dropdown.style.marginTop = '18px';
-            dropdown.style.boxShadow = '0px 0px 7px grey';
-            dropdown.style.borderRadius = '5px'
-            dropdown.style.backgroundColor = '#fff'
+    const button = avatarsection.querySelector('.btn-reset.nav-link');
+    const dropdown = avatarsection.querySelector('.dropdown-menu.dropdown-menu-right');
+    if (!dropdown) return;
+
+    const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+
+    if (button) {
+        const avtarbtn = button.querySelector('.avatar.avatar-medium div');
+        if (avtarbtn) {
+            avtarbtn.style.backgroundColor = '#fff';
+            avtarbtn.style.color = '#2385c2';
+            avtarbtn.style.textTransform = 'uppercase';
+            avtarbtn.style.fontWeight = '500';
         }
     }
-}
+
+    dropdown.style.marginTop = '18px';
+    dropdown.style.boxShadow = '0px 0px 7px grey';
+    dropdown.style.borderRadius = '5px';
+    dropdown.style.backgroundColor = '#fff';
+
+    const logoutBtn = dropdown.querySelector('.dropdown-item[onclick="return frappe.app.logout()"]');
+
+    if (logoutBtn) {
+        logoutBtn.style.borderRadius = '5px';
+        logoutBtn.style.color = '#383838';
+
+
+        logoutBtn.addEventListener('mouseenter', () => {
+            logoutBtn.style.background = '#e63946';
+            logoutBtn.style.color = '#fff';
+        });
+
+        logoutBtn.addEventListener('mouseleave', () => {
+            logoutBtn.style.background = '';
+            logoutBtn.style.color = '#383838';
+
+        });
+    }
+
+    dropdownItems.forEach(item => {
+
+        if (item === logoutBtn) return;
+
+        item.style.color = '#383838';
+        item.style.borderRadius = '5px';
+
+        item.addEventListener('mouseenter', () => {
+            item.style.color = '#fff';
+            item.style.background = 'linear-gradient(135deg, #3271C2, #163E76)';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.style.background = '';
+            item.style.color = '#383838';
+        });
+    });
+};
+
 
 
 
