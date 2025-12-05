@@ -280,6 +280,26 @@ const avatar = (navSubdiv) => {
 };
 
 
+const target = document.querySelector('.navbar-collapse.collapse');
+
+if (target) {
+    const observer = new MutationObserver(() => {
+        if (target.classList.contains('show')) {
+            target.style.zIndex = '999999';
+            target.style.background = '#fff';
+           
+            target.style.borderRadius = '5px';
+            target.style.marginTop = '16px';
+            target.style.boxShadow = '0 0px 5px grey';
+        }
+    });
+
+    observer.observe(target, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+}
+
 
 
 preloginNavbar();
