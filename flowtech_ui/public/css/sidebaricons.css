@@ -156,6 +156,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     height: 30px !important;
+    transition: 500ms ease-in-out;
     /* height: 40px !important; */
 }
 
@@ -183,7 +184,8 @@
     color: #fff !important;
     /* background-size: 100% 100%; */
     /* background-color: #3271c2 !important; */
-    background: linear-gradient(135deg, #3271C2, #163E76);;
+    background: linear-gradient(135deg, #3271C2, #163E76);
+    transform: translatex(10px);
     border-radius: 4px;
 }
 
