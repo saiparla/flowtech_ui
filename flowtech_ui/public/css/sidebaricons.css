@@ -282,6 +282,14 @@
     }
 }
 
+.level-item.list-liked-by-me.hidden-xs use.like-icon {
+    --icon-stroke: transparent;
+    cursor: pointer;
+    stroke: #ffff;
+    stroke-width: 1.5px;
+}
+
+    
 use.like-icon {
     --icon-stroke: transparent;
     cursor: pointer;

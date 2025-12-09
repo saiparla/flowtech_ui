@@ -123,6 +123,21 @@ const filterselection = () => {
     const buttongroup = filterselectors.querySelector('.btn-group');
     if (!buttongroup) return;
     const buttons = buttongroup.querySelectorAll('button');
+    const button = buttongroup.querySelector('button');
+    if (button) {
+
+        button.addEventListener('mouseover', () => {
+            button.style.background = '#383838'
+            button.style.color = '#fff'
+
+        })
+        button.addEventListener('mouseout', () => {
+            button.style.background = '#3271c2';
+            button.style.color = '#fff';
+
+
+        })
+    }
     if (!buttons) return;
     buttons.forEach((button) => {
         button.style.background = '#3271c2'
@@ -146,6 +161,7 @@ const filterselection = () => {
     const filterlabel = buttongroup.querySelector('.filter-label')
     if (!filterlabel) return;
     filterlabel.style.borderRadius = '5px';
+    filterlabel.style.boxShadow = '0px 0px 5px #888';
     filterlabel.style.textAlign = 'center';
     filterlabel.style.alignContent = 'center';
 
@@ -205,3 +221,304 @@ filterDialogobserver.observe(document.body, {
     subtree: true
 });
 
+
+const standardfilters = () => {
+    const filterDivs = document.querySelectorAll('.standard-filter-section.flex > .form-group > input');
+
+    if (filterDivs.length > 0) {
+        filterDivs.forEach(div => {
+            div.style.backgroundColor = '#fff';
+            div.style.padding = '2px';
+            div.style.paddingLeft = '10px';
+            div.style.borderRadius = '4px';
+            div.style.marginRight = '8px';
+            div.style.boxShadow = '0px 0px 5px #ccc';
+            div.style.transition = '500ms';
+
+            div.addEventListener('blur', () => {
+                div.style.border = '1px solid #ccc';
+            });
+
+            // Reset styles on focus
+            div.addEventListener('focus', () => {
+                div.style.border = '1px solid #3271c2';
+                div.style.boxShadow = 'none';
+            });
+        });
+    }
+
+    const linkInputs = document.querySelectorAll(
+        '.standard-filter-section.flex .form-group .link-field input'
+    );
+
+    linkInputs.forEach(div => {
+
+        div.style.backgroundColor = '#fff';
+        div.style.padding = '2px';
+        div.style.paddingLeft = '10px';
+        div.style.borderRadius = '4px';
+        div.style.marginRight = '8px';
+        div.style.boxShadow = '0px 0px 5px #ccc';
+        div.style.transition = '500ms';
+        div.addEventListener('blur', () => {
+            div.style.border = '1px solid #ccc';
+        });
+
+        div.addEventListener('focus', () => {
+            div.style.border = '1px solid #3271c2';
+            div.style.boxShadow = 'none';
+        });
+    });
+    styleAwesompleteDropdown();
+};
+
+
+const styleAwesompleteDropdown = () => {
+    const options = document.querySelectorAll(
+        '.standard-filter-section.flex .form-group .awesomplete ul div[role="option"]'
+    );
+
+    options.forEach(opt => {
+        opt.style.backgroundColor = "#fff";
+        opt.style.boxShadow = "0px 0px 5px #ccc";
+        opt.style.padding = "5px";
+        opt.style.cursor = "pointer";
+        opt.style.transition = "400ms";
+        opt.style.borderRadius = "5px";
+
+
+        opt.addEventListener("mouseenter", () => {
+            opt.style.background = "linear-gradient(135deg, #3271C2, #163E76)";
+            opt.style.color = "#fff";
+            opt.style.marginLeft = "10px";
+        });
+
+        opt.addEventListener("mouseleave", () => {
+            opt.style.background = "#fff";
+            opt.style.color = "#000";
+            opt.style.marginLeft = "0px";
+
+        });
+
+        opt.addEventListener("mousedown", () => {
+            opt.style.backgroundColor = "#3271c2";
+            opt.style.color = "#fff";
+        });
+    });
+    styleCheckboxes();
+};
+const styleCheckboxes = () => {
+    const checkboxes = document.querySelectorAll(
+        '.standard-filter-section.flex .form-group[data-fieldtype="Check"] input[type="checkbox"]'
+    );
+
+    checkboxes.forEach(chk => {
+
+        chk.style.appearance = "none";
+        chk.style.webkitAppearance = "none";
+        chk.style.mozAppearance = "none";
+
+        chk.style.width = "16px";
+        chk.style.height = "16px";
+        chk.style.borderRadius = "3px";
+        chk.style.cursor = "pointer";
+        chk.style.display = "inline-block";
+        chk.style.position = "relative";
+        chk.style.outline = "none";
+        chk.style.transition = "200ms";
+
+        const drawTick = () => {
+            chk.style.backgroundColor = "#3271c2";
+            chk.style.borderColor = "#3271c2";
+            chk.style.backgroundSize = "14px 14px";
+
+            chk.style.backgroundImage =
+                "url('/assets/flowtech_ui/images/check-solid-full.svg')"
+
+        };
+
+        const removeTick = () => {
+            chk.style.backgroundColor = "white";
+            chk.style.borderColor = "#ccc";
+            chk.style.backgroundImage = "none";
+        };
+
+        // Initial state
+        if (chk.checked) drawTick();
+        else removeTick();
+
+        // On change event
+        chk.addEventListener("change", () => {
+            if (chk.checked) {
+                drawTick();
+            } else {
+                removeTick();
+            }
+        });
+    });
+};
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", standardfilters);
+const standardfiltersobserver = new MutationObserver(standardfilters);
+standardfiltersobserver.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+const styleListView = () => {
+    const header = document.querySelector(".list-row-head");
+    if (header) {
+        header.style.setProperty("background-color", "#3271c2", "important");
+        header.style.setProperty("color", "white", "important");
+        header.style.setProperty("font-weight", "bold", "important");
+        header.style.setProperty("border-radius", "4px", "important");
+    }
+
+    const headerTexts = document.querySelectorAll(".list-row-head span, .list-row-head div");
+    headerTexts.forEach(el => {
+        el.style.setProperty("color", "white", "important");
+        el.style.setProperty("font-weight", "bold", "important");
+    });
+
+    const headerSvgs = document.querySelector(".level-item.list-liked-by-me.hidden-xs > span > svg");
+    if (headerSvgs) {
+        headerSvgs.style.setProperty("stroke", "#fff", "important");
+        headerSvgs.style.setProperty("fill", "white", "important");
+    }
+
+    const rows = document.querySelectorAll(".list-row");
+    rows.forEach(row => {
+        row.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
+
+        row.addEventListener("mouseenter", () => {
+            row.style.transform = "scale(1.003)";
+            row.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+        });
+
+        row.addEventListener("mouseleave", () => {
+            row.style.transform = "scale(1)";
+            row.style.boxShadow = "none";
+        });
+    });
+
+    const tickSvg = "/assets/flowtech_ui/images/check-solid-full.svg";
+    const rowCheckboxes = document.querySelectorAll('.list-row .list-row-checkbox');
+    const selectAllChk = document.querySelector(".list-check-all");
+
+    if (selectAllChk) {
+        selectAllChk.style.setProperty("appearance", "none", "important");
+        selectAllChk.style.setProperty("width", "18px", "important");
+        selectAllChk.style.setProperty("height", "18px", "important");
+        selectAllChk.style.setProperty("border-radius", "3px", "important");
+        selectAllChk.style.setProperty("cursor", "pointer", "important");
+        selectAllChk.style.setProperty("transition", "200ms", "important");
+        selectAllChk.style.setProperty("border", "2px solid #fff", "important");
+        selectAllChk.style.setProperty("background-color", "transparent", "important");
+        selectAllChk.style.setProperty("background-image", "none", "important"); // never show tick
+
+        selectAllChk.addEventListener("change", () => {
+            styleHeaderCheckbox(selectAllChk);
+
+            rowCheckboxes.forEach(chk => {
+                chk.checked = selectAllChk.checked;
+                styleCheckbox(chk, tickSvg);
+            });
+        });
+
+        styleHeaderCheckbox(selectAllChk);
+    }
+
+    rowCheckboxes.forEach(chk => {
+        styleCheckbox(chk, tickSvg);
+    });
+}
+
+const styleHeaderCheckbox = (chk) => {
+    chk.style.setProperty("appearance", "none", "important");
+    chk.style.setProperty("width", "18px", "important");
+    chk.style.setProperty("height", "18px", "important");
+    chk.style.setProperty("border-radius", "3px", "important");
+    chk.style.setProperty("cursor", "pointer", "important");
+    chk.style.setProperty("transition", "200ms", "important");
+    chk.style.setProperty("border", "2px solid #fff", "important");
+    chk.style.setProperty("background-color", "transparent", "important");
+    chk.style.setProperty("background-image", "none", "important");
+}
+
+const styleCheckbox = (chk, tickSvg) => {
+    chk.style.setProperty("appearance", "none", "important");
+    chk.style.setProperty("webkit-appearance", "none", "important");
+    chk.style.setProperty("moz-appearance", "none", "important");
+    chk.style.setProperty("width", "18px", "important");
+    chk.style.setProperty("height", "18px", "important");
+    chk.style.setProperty("border-radius", "3px", "important");
+    chk.style.setProperty("cursor", "pointer", "important");
+    chk.style.setProperty("transition", "200ms", "important");
+
+    if (chk.checked) {
+        chk.style.setProperty("background-image", `url(${tickSvg})`, "important");
+        chk.style.setProperty("background-size", "14px 14px", "important");
+        chk.style.setProperty("background-position", "center", "important");
+        chk.style.setProperty("background-repeat", "no-repeat", "important");
+        chk.style.setProperty("background-color", "#3271c2", "important");
+        chk.style.setProperty("border", "2px solid #3271c2", "important");
+    } else {
+        chk.style.setProperty("background-image", "none", "important");
+        chk.style.setProperty("background-color", "transparent", "important");
+        chk.style.setProperty("border", "2px solid #3271c2", "important");
+    }
+
+    chk.addEventListener("change", () => {
+        styleCheckbox(chk, tickSvg);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", styleListView);
+const listObserver = new MutationObserver(styleListView);
+listObserver.observe(document.body, { childList: true, subtree: true });
+
+
+const highlightButton = (button) => {
+    const allButtons = document.querySelectorAll('.level-left .btn-paging');
+    allButtons.forEach(btn => {
+        btn.style.backgroundColor = '#fff';
+        btn.style.color = '#383838';
+        btn.style.border = 'none';
+        btn.style.transition = 'all 0.4s ease';
+    });
+
+    button.style.backgroundColor = '#3271c2';
+    button.style.color = 'white';
+    button.style.borderColor = '#3271c2';
+    button.style.transition = 'all 0.4s ease';
+}
+
+const attachPaginationBehavior = (button) => {
+    button.addEventListener('click', () => highlightButton(button));
+}
+
+const initPaginationHighlight = () => {
+    const container = document.querySelector('.level-left .btn-group');
+    if (!container) return;
+
+    const buttons = container.querySelectorAll('.btn-paging');
+    buttons.forEach(attachPaginationBehavior);
+
+    const activeButton = container.querySelector('.btn-paging.btn-info');
+    if (activeButton) {
+        highlightButton(activeButton);
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', initPaginationHighlight)
+
+const paginationobserver = new MutationObserver(initPaginationHighlight);
+paginationobserver.observe(document.body, {
+    childList: true,
+    subtree: true
+});

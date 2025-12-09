@@ -60,26 +60,6 @@ const replacePageIcon = () => {
         if (printtitle == 'Print') {
             const svg = btn.querySelector('svg');
             if (svg) svg.remove();
-
-            // if (!btn.querySelector('img')) {
-            //     const img = document.createElement('img');
-            //     img.src = "/assets/flowtech_ui/images/printer.png";
-            //     img.alt = "Reload";
-            //     img.style.width = "16px";
-            //     img.style.width = "16px";
-            //     img.style.rotate = "29deg";
-            //     img.style.objectFit = "contain";
-            //     img.style.transition = "transform  0.5s";
-            //     btn.appendChild(img);
-            //     img.addEventListener('click', () => {
-            //         img.style.transform = "rotate(360deg)";
-
-            //         setTimeout(() => {
-            //             img.style.transform = "rotate(0deg)";
-            //         }, 500);
-            //     });
-            // }
-
             if (!btn.querySelector('img')) {
                 const img = document.createElement('img');
                 img.src = "/assets/flowtech_ui/images/printer.png";
