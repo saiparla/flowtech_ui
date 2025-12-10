@@ -269,6 +269,30 @@ const standardfilters = () => {
             div.style.boxShadow = 'none';
         });
     });
+
+    const selectFields = document.querySelectorAll(
+        '.standard-filter-section.flex .form-group select'
+    );
+
+    selectFields.forEach(select => {
+        select.style.backgroundColor = '#fff';
+        select.style.padding = '2px 10px';
+        select.style.borderRadius = '4px';
+        select.style.marginRight = '8px';
+        select.style.boxShadow = '0px 0px 5px #ccc';
+        select.style.transition = '500ms';
+        select.style.cursor = 'pointer';
+
+        select.addEventListener('blur', () => {
+            select.style.border = '1px solid #ccc';
+        });
+
+        select.addEventListener('focus', () => {
+            select.style.border = '1px solid #3271c2';
+            select.style.boxShadow = 'none';
+        });
+
+    });
     styleAwesompleteDropdown();
 };
 
@@ -519,6 +543,219 @@ document.addEventListener('DOMContentLoaded', initPaginationHighlight)
 
 const paginationobserver = new MutationObserver(initPaginationHighlight);
 paginationobserver.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+
+const rightbottombuttons = () => {
+    const container = document.querySelector('.level-right button');
+    if (container) {
+        container.style.background = '#3271c2';
+        container.style.boxShadow = '0px 0px 5px #ccc';
+        container.style.borderRadius = '5px';
+        container.style.color = '#ffff';
+        container.style.transition = '0.2s';
+
+        container.addEventListener('mouseover', () => {
+            container.style.background = '#525252'
+        })
+        container.addEventListener('mouseout', () => {
+            container.style.background = '#3271c2'
+        })
+    }
+
+
+
+}
+
+document.addEventListener('DOMContentLoaded', rightbottombuttons)
+
+const buttons = new MutationObserver(rightbottombuttons);
+buttons.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+// const styleSidebarFilters = () => {
+//     const sidebar = document.querySelector('.sidebar-section.filter-section');
+
+//     const groupButtons = document.querySelectorAll('.list-group-by-fields .list-sidebar-button');
+//     groupButtons.forEach(btn => {
+//         btn.style.borderRadius = "4px";
+//         btn.style.boxShadow = "0 0 5px #ccc";
+//         btn.style.backgroundColor = "#FFF";
+//     });
+
+//     const editFilters = document.querySelector('.add-list-group-by .add-group-by');
+//     if (editFilters) {
+
+//     }
+
+//     const tagButton = document.querySelector('.list-tags .list-stats .list-sidebar-button');
+//     if (tagButton) {
+//         tagButton.style.borderRadius = "4px";
+//         tagButton.style.backgroundColor = "#fff";
+//         tagButton.style.boxShadow = "0 0 4px #ccc";
+//     }
+
+//     const showTags = document.querySelector('.show-tags .list-tag-preview');
+
+
+//     const dropdowns = document.querySelectorAll('.dropdown-menu.group-by-dropdown');
+//     dropdowns.forEach(d => {
+//         d.style.borderRadius = "4px";
+//         d.style.boxShadow = "0 0 5px #ccc";
+//         d.style.padding = "5px";
+//         d.style.marginTop = "4px";
+//         const dropdownsearch = d.querySelector('input');
+//         if (dropdownsearch) {
+//             dropdownsearch.style.borderRadius = '5px'
+//             dropdownsearch.style.boxShadow = "0 0 5px #888";
+//             dropdownsearch.style.backgroundColor = "#fff";
+//         }
+//     });
+
+//     const tagsdropdown = document.querySelectorAll('.dropdown-menu.list-stats-dropdown');
+//     tagsdropdown.forEach(d => {
+//         d.style.borderRadius = "4px";
+//         d.style.boxShadow = "0 0 5px #ccc";
+//         d.style.padding = "5px";
+//         d.style.marginTop = "4px";
+//         const dropdownsearch = d.querySelector('input');
+//         if (dropdownsearch) {
+//             dropdownsearch.style.borderRadius = '5px'
+//             dropdownsearch.style.boxShadow = "0 0 5px #888";
+//             dropdownsearch.style.backgroundColor = "#fff";
+//         }
+//     });
+// };
+
+
+
+// document.addEventListener("DOMContentLoaded", styleSidebarFilters);
+
+// // Observe DOM changes just like your filterDialog
+// const sidebarObserver = new MutationObserver(styleSidebarFilters);
+// sidebarObserver.observe(document.body, {
+//     childList: true,
+//     subtree: true
+// });
+
+
+const styleSidebarFilters = () => {
+    const sidebar = document.querySelector('.sidebar-section.filter-section');
+
+    const groupButtons = document.querySelectorAll('.list-group-by-fields .list-sidebar-button');
+    groupButtons.forEach(btn => {
+        btn.style.borderRadius = "4px";
+        btn.style.boxShadow = "0 0 5px #ccc";
+        btn.style.backgroundColor = "#FFF";
+    });
+
+    const editFilters = document.querySelector('.add-list-group-by .add-group-by');
+    if (editFilters) {
+
+    }
+
+    const tagButton = document.querySelector('.list-tags .list-stats .list-sidebar-button');
+    if (tagButton) {
+        tagButton.style.borderRadius = "4px";
+        tagButton.style.backgroundColor = "#fff";
+        tagButton.style.boxShadow = "0 0 4px #ccc";
+    }
+
+    const showTags = document.querySelector('.show-tags .list-tag-preview');
+
+    const dropdowns = document.querySelectorAll('.dropdown-menu.group-by-dropdown');
+    dropdowns.forEach(d => {
+        d.style.borderRadius = "4px";
+        d.style.boxShadow = "0 0 5px #ccc";
+        d.style.padding = "5px";
+        d.style.marginTop = "4px";
+        const dropdownsearch = d.querySelector('input');
+        if (dropdownsearch) {
+            dropdownsearch.style.borderRadius = '5px';
+            dropdownsearch.style.boxShadow = "0 0 5px #888";
+            dropdownsearch.style.backgroundColor = "#fff";
+        }
+    });
+
+    const tagsdropdown = document.querySelectorAll('.dropdown-menu.list-stats-dropdown');
+    tagsdropdown.forEach(d => {
+        d.style.borderRadius = "4px";
+        d.style.boxShadow = "0 0 5px #ccc";
+        d.style.padding = "5px";
+        d.style.marginTop = "4px";
+        const dropdownsearch = d.querySelector('input');
+        if (dropdownsearch) {
+            dropdownsearch.style.borderRadius = '5px';
+            dropdownsearch.style.boxShadow = "0 0 5px #888";
+            dropdownsearch.style.backgroundColor = "#fff";
+        }
+    });
+
+    document.querySelectorAll(`
+        .dropdown-menu.list-stats-dropdown li,
+        .dropdown-menu.group-by-dropdown li,
+        .dropdown-menu.list-stats-dropdown a,
+        .dropdown-menu.group-by-dropdown a ,
+        .dropdown-menu.list-stats-dropdown >div,
+        .dropdown-menu.group-by-dropdown >div,
+        .dropdown-menu.list-stats-dropdown  .stat-result > div,
+        .dropdown-menu.group-by-dropdown .stat-result > li
+    `).forEach(item => {
+        if (item.querySelector('input') || item.tagName === 'INPUT') return;
+        item.style.borderRadius = '5px';
+        item.style.transition = '0.5s';
+
+        item.onmouseenter = null;
+        item.onmouseleave = null;
+
+        item.onmouseenter = () => {
+            item.style.background = 'linear-gradient(135deg, #3271C2, #163E76)';
+            item.style.color = '#fff';
+
+        };
+        item.onmouseleave = () => {
+            item.style.background = '#fff';
+            item.style.color = '#525252';
+
+        }
+    });
+
+    const savefilters = document.querySelector('.sidebar-section.save-filter-section');
+
+    if (savefilters) {
+        const saveinputs = savefilters.querySelectorAll('input');
+        if (saveinputs) {
+            saveinputs.forEach(data => {
+                data.style.background = '#fff'
+                data.style.borderRadius = '4px'
+                data.style.boxShadow = '0px 0px 5px #ccca'
+                data.style.color = 'black';
+
+            }
+            )
+        }
+    }
+
+    const newfilters = document.querySelectorAll('.list-link.filter-pill.list-sidebar-button.btn.btn-default');
+    if (newfilters) {
+        newfilters.forEach(data => {
+            data.style.background = '#fff'
+            data.style.borderRadius = '5px'
+            data.style.boxShadow = '0px 0px 5px #ccc';
+        }
+        )
+    }
+
+};
+
+document.addEventListener("DOMContentLoaded", styleSidebarFilters);
+
+const sidebarObserver = new MutationObserver(styleSidebarFilters);
+sidebarObserver.observe(document.body, {
     childList: true,
     subtree: true
 });

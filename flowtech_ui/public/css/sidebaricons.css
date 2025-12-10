@@ -289,7 +289,7 @@
     stroke-width: 1.5px;
 }
 
-    
+
 use.like-icon {
     --icon-stroke: transparent;
     cursor: pointer;
@@ -381,4 +381,30 @@ use.like-icon {
 
 .btn.btn-primary.btn-sm.primary-action:hover {
     background-color: #525252 !important;
+}
+
+#awesomplete_list_1 li {
+    transition: 0.5s;
+}
+
+
+
+#awesomplete_list_1 li:hover,
+#awesomplete_list_1 li[aria-selected="true"]:hover {
+    box-shadow: 0px 0px 5px #ccc;
+    background: linear-gradient(135deg, #3271C2, #163E76);
+    margin-left: 10px;
+    color: #fff;
+    font-weight: 600;
+
+    a {
+        color: #fff;
+    }
+}
+
+
+#awesomplete_list_1 li[aria-selected="true"] {
+    box-shadow: none;
+    background: transparent;
+    font-weight: 600;
 }

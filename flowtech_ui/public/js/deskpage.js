@@ -25,7 +25,7 @@ observer1.observe(document.body, {
     subtree: true
 });
 
-
+    
 
 
 const replacePageIcon = () => {

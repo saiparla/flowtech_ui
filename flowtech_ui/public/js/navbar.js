@@ -367,6 +367,3 @@ const observeHelpDropdown = () => {
 document.addEventListener('DOMContentLoaded', () => {
     observeHelpDropdown();
 });
-
-
-
