@@ -128,10 +128,4 @@ desksidebarobserver.observe(document.body, {
 //     });
 // }
 
-// // Run after DOM loads (or after your delay)
-// setTimeout(replaceGettingStartedIcon, 800);
-
-
-
-
 
