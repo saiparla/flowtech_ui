@@ -117,9 +117,11 @@ desksidebarobserver.observe(document.body, {
 //         }
 
 //         const img = document.createElement('img');
-//         img.src = "/assets/flowtech_ui/images/house-regular-full.svg"; 
-//         img.style.width = "20px"; 
+//         img.src = "/assets/flowtech_ui/images/house-regular-full.svg";
+//         img.style.width = "20px";
 //         img.style.height = "20px";
+//         img.style.filter = "invert(100%)";
+//         img.style.stroke = "none";
 //         img.style.objectFit = "contain";
 
 //         iconWrapper.appendChild(img);

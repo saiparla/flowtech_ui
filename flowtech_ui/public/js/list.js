@@ -400,6 +400,10 @@ const styleListView = () => {
         header.style.setProperty("color", "white", "important");
         header.style.setProperty("font-weight", "bold", "important");
         header.style.setProperty("border-radius", "4px", "important");
+        const levelright = header.querySelector('.level-right')
+        if (levelright) {
+            levelright.style.display = 'none'
+        }
     }
 
     const headerTexts = document.querySelectorAll(".list-row-head span, .list-row-head div");
@@ -417,6 +421,10 @@ const styleListView = () => {
     const rows = document.querySelectorAll(".list-row");
     rows.forEach(row => {
         row.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
+        const levelright = row.querySelector('.level-right')
+        if (levelright) {
+            levelright.style.display = 'none'
+        }
 
         row.addEventListener("mouseenter", () => {
             row.style.transform = "scale(1.003)";
