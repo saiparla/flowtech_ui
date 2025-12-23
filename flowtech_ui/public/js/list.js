@@ -239,7 +239,6 @@ const standardfilters = () => {
                 div.style.border = '1px solid #ccc';
             });
 
-            // Reset styles on focus
             div.addEventListener('focus', () => {
                 div.style.border = '1px solid #3271c2';
                 div.style.boxShadow = 'none';
@@ -585,70 +584,7 @@ buttons.observe(document.body, {
     subtree: true
 });
 
-// const styleSidebarFilters = () => {
-//     const sidebar = document.querySelector('.sidebar-section.filter-section');
 
-//     const groupButtons = document.querySelectorAll('.list-group-by-fields .list-sidebar-button');
-//     groupButtons.forEach(btn => {
-//         btn.style.borderRadius = "4px";
-//         btn.style.boxShadow = "0 0 5px #ccc";
-//         btn.style.backgroundColor = "#FFF";
-//     });
-
-//     const editFilters = document.querySelector('.add-list-group-by .add-group-by');
-//     if (editFilters) {
-
-//     }
-
-//     const tagButton = document.querySelector('.list-tags .list-stats .list-sidebar-button');
-//     if (tagButton) {
-//         tagButton.style.borderRadius = "4px";
-//         tagButton.style.backgroundColor = "#fff";
-//         tagButton.style.boxShadow = "0 0 4px #ccc";
-//     }
-
-//     const showTags = document.querySelector('.show-tags .list-tag-preview');
-
-
-//     const dropdowns = document.querySelectorAll('.dropdown-menu.group-by-dropdown');
-//     dropdowns.forEach(d => {
-//         d.style.borderRadius = "4px";
-//         d.style.boxShadow = "0 0 5px #ccc";
-//         d.style.padding = "5px";
-//         d.style.marginTop = "4px";
-//         const dropdownsearch = d.querySelector('input');
-//         if (dropdownsearch) {
-//             dropdownsearch.style.borderRadius = '5px'
-//             dropdownsearch.style.boxShadow = "0 0 5px #888";
-//             dropdownsearch.style.backgroundColor = "#fff";
-//         }
-//     });
-
-//     const tagsdropdown = document.querySelectorAll('.dropdown-menu.list-stats-dropdown');
-//     tagsdropdown.forEach(d => {
-//         d.style.borderRadius = "4px";
-//         d.style.boxShadow = "0 0 5px #ccc";
-//         d.style.padding = "5px";
-//         d.style.marginTop = "4px";
-//         const dropdownsearch = d.querySelector('input');
-//         if (dropdownsearch) {
-//             dropdownsearch.style.borderRadius = '5px'
-//             dropdownsearch.style.boxShadow = "0 0 5px #888";
-//             dropdownsearch.style.backgroundColor = "#fff";
-//         }
-//     });
-// };
-
-
-
-// document.addEventListener("DOMContentLoaded", styleSidebarFilters);
-
-// // Observe DOM changes just like your filterDialog
-// const sidebarObserver = new MutationObserver(styleSidebarFilters);
-// sidebarObserver.observe(document.body, {
-//     childList: true,
-//     subtree: true
-// });
 
 
 const styleSidebarFilters = () => {

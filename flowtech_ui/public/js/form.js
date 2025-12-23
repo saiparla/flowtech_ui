@@ -23,16 +23,7 @@ const formtabs = () => {
 
 document.addEventListener('DOMContentLoaded', formtabs);
 
-const tabObserver = new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-        if (
-            mutation.type === 'childList' ||
-            (mutation.type === 'attributes' && mutation.attributeName === 'class')
-        ) {
-            formtabs();
-        }
-    }
-});
+const tabObserver = new MutationObserver(formtabs);
 
 tabObserver.observe(document.body, {
     childList: true,
@@ -52,7 +43,6 @@ const styleFormInputs = () => {
     `;
 
     document.querySelectorAll(selectors).forEach(el => {
-        // Prevent re-applying styles
         if (el.dataset.styled === 'true') return;
 
         el.style.borderRadius = '5px';
@@ -63,7 +53,6 @@ const styleFormInputs = () => {
     });
 };
 
-// Initial run
 document.addEventListener('DOMContentLoaded', styleFormInputs);
 
 const inputObserver = new MutationObserver(styleFormInputs);
