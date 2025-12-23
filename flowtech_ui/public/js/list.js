@@ -450,7 +450,7 @@ const styleListView = () => {
         selectAllChk.style.setProperty("transition", "200ms", "important");
         selectAllChk.style.setProperty("border", "2px solid #fff", "important");
         selectAllChk.style.setProperty("background-color", "transparent", "important");
-        selectAllChk.style.setProperty("background-image", "none", "important"); // never show tick
+        selectAllChk.style.setProperty("background-image", "none", "important");
 
         selectAllChk.addEventListener("change", () => {
             styleHeaderCheckbox(selectAllChk);
@@ -724,6 +724,8 @@ const styleSidebarFilters = () => {
             item.style.background = 'linear-gradient(135deg, #3271C2, #163E76)';
             item.style.color = '#fff';
 
+
+
         };
         item.onmouseleave = () => {
             item.style.background = '#fff';
@@ -740,7 +742,7 @@ const styleSidebarFilters = () => {
             saveinputs.forEach(data => {
                 data.style.background = '#fff'
                 data.style.borderRadius = '4px'
-                data.style.boxShadow = '0px 0px 5px #ccca'
+                data.style.boxShadow = '0px 0px 5px #ccc'
                 data.style.color = 'black';
 
             }

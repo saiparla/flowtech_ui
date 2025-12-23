@@ -49,23 +49,96 @@ const postLoginNavbar = () => {
 
 
                 const navContainer = nav.querySelector('.container');
-                if (navContainer) {
-                    const logo = navContainer.querySelector('.navbar-brand.navbar-home')
-                    if (logo) {
-                        logo.style.marginTop = '6px'
-                        logo.innerHTML = `
-                                        <span style="padding:1px; border-radius:5px; display:inline-block;align-content:center;width:max-content;height:auto;background:#ffff;">
-                                <img src="/assets/flowtech_ui/images/transparent_samarpan.png" alt="flowtech logo" style="display:block;">
-                                </span>
-                                        `;
+                // if (navContainer) {
+                //     const logo = navContainer.querySelector('.navbar-brand.navbar-home')
+                //     if (logo) {
+                //         logo.style.marginTop = '6px'
+                //         logo.innerHTML = `
+                //                         <span style="padding:1px; border-radius:5px; display:inline-block;align-content:center;width:max-content;height:auto;background:#ffff;">
+                //                 <img src="/assets/flowtech_ui/images/transparent_samarpan.png" alt="flowtech logo" style="display:block;">
+                //                 </span>
+                //                         `;
 
+                //     }
+                //     const navSubdiv = document.querySelector('.collapse.navbar-collapse.justify-content-end')
+                //     searchtab(navSubdiv);
+                //     notificationstab(navSubdiv);
+                //     helpsection(navSubdiv);
+                //     avatar(navSubdiv);
+                // }
+                if (navContainer) {
+                    const logo = navContainer.querySelector('.navbar-brand.navbar-home');
+
+                    if (logo) {
+                        logo.style.marginTop = '6px';
+                        logo.innerHTML = `
+        <span style="
+            display:inline-block;
+            background:#fff;
+            border-radius:6px;
+            perspective:800px;
+            padding:1px;
+            boxShadow = '0px 0px 5px #525252';
+
+        ">
+            <div class="cube" style="
+                width:150px;
+                height:40px;
+                position:relative;
+                transform-style:preserve-3d;
+                transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
+            ">
+                <!-- FRONT -->
+                <img src="/assets/flowtech_ui/images/transparent_samarpan.png"
+                     style="
+                        position:absolute;
+                        top:50%;
+                        left:50%;
+                        width:100%;
+                        height:max-content;
+                        object-fit:contain;
+                        object-position:center;
+                        backface-visibility:hidden;
+                        transform: translate(-50%, -50%) translateZ(20px);
+                     ">
+
+                <!-- BACK -->
+                <img src="/assets/flowtech_ui/images/flowtech_logo.png"
+                     style="
+                        position:absolute;
+                        top:50%;
+                        left:50%;
+                        width:170px;
+                        height:max-content;
+                        object-fit:contain;
+                        object-position:center;
+                        backface-visibility:hidden;
+                        transform: translate(-50%, -50%) rotateX(180deg) translateZ(20px);
+                     ">
+            </div>
+        </span>
+        `;
+
+                        const cube = logo.querySelector('.cube');
+                        let flipped = false;
+
+                        // Flip every 3 seconds
+                        setInterval(() => {
+                            flipped = !flipped;
+                            cube.style.transform = flipped ? 'rotateX(180deg)' : 'rotateX(0deg)';
+                        }, 5000);
                     }
-                    const navSubdiv = document.querySelector('.collapse.navbar-collapse.justify-content-end')
+
+                    const navSubdiv = document.querySelector('.collapse.navbar-collapse.justify-content-end');
                     searchtab(navSubdiv);
                     notificationstab(navSubdiv);
                     helpsection(navSubdiv);
                     avatar(navSubdiv);
                 }
+
+
+
+
             }
         });
     } else {
@@ -367,3 +440,52 @@ const observeHelpDropdown = () => {
 document.addEventListener('DOMContentLoaded', () => {
     observeHelpDropdown();
 });
+
+
+// const flowtechlogo = () => {
+//     const pageactions = document.querySelector('.flex.col.page-actions.justify-content-end');
+
+//     // if (!pageactions) return;
+
+//     // Prevent adding logo twice
+//     if (pageactions.querySelector('.flowtech-logo'))
+//         {
+//             pageactions.querySelector('.flowtech-logo').remove()
+//         };
+
+//     // Add spacing to the previous last element
+//     const lastChild = pageactions.lastElementChild;
+//     if (lastChild) {
+//         lastChild.style.marginRight = "20px";
+//     }
+
+//     // Create logo
+//     const logo = document.createElement('img');
+//     logo.src = '/assets/flowtech_ui/images/flowtech_logo.png';
+//     logo.classList.add('flowtech-logo');
+//     logo.style.height = '35px';
+
+//     pageactions.appendChild(logo);
+// };
+
+
+
+
+// // // Initial load
+// document.addEventListener('DOMContentLoaded', flowtechlogo);
+
+// // Mutation observer
+// const logoobserver = new MutationObserver(flowtechlogo);
+
+// logoobserver.observe(document.body, {
+//     childList: true,
+//     subtree: true
+// });
+
+
+
+
+
+
+
+
