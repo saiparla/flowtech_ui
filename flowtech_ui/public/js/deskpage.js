@@ -131,28 +131,42 @@ const observer = new MutationObserver(replaceCustomButtonIcon);
 observer.observe(document.body, { childList: true, subtree: true });
 
 
+
 function replaceAddItemIcon() {
-    const addItemButton = document.querySelector('.btn-primary.primary-action');
+    const buttons = document.querySelectorAll('.btn-primary.primary-action');
 
-    if (addItemButton) {
+    buttons.forEach(addItemButton => {
         const textSpan = addItemButton.querySelector('.hidden-xs');
-        if (textSpan) {
-            const svg = addItemButton.querySelector('svg');
-            if (svg) svg.remove();
+        if (!textSpan) return;
 
-            if (!textSpan.querySelector('img')) {
-                const img = document.createElement('img');
-                img.src = "/assets/flowtech_ui/images/add.png";
-                img.alt = "Options";
-                img.style.width = "16px";
-                img.style.height = "16px";
-                img.style.objectFit = "contain";
-                img.style.marginRight = "4px";
+        const buttonText = textSpan.textContent.trim().toLowerCase();
 
-                textSpan.insertBefore(img, textSpan.firstChild);
-            }
+        // Remove existing SVG
+        const svg = addItemButton.querySelector('svg');
+        if (svg) svg.remove();
+
+        // Prevent duplicate images
+        if (textSpan.querySelector('img')) return;
+
+        const img = document.createElement('img');
+
+        if (buttonText === 'print') {
+            img.src = "/assets/flowtech_ui/images/printer.png";
+            img.style.width = '13px';
+            img.style.height = '13px';
+        } else {
+            img.src = "/assets/flowtech_ui/images/plus-solid-full.svg";
+            img.style.width = "16px";
+            img.style.height = "16px";
         }
-    }
+
+        img.alt = "Icon";
+
+        img.style.objectFit = "contain";
+        img.style.marginRight = "4px";
+
+        textSpan.insertBefore(img, textSpan.firstChild);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', replaceAddItemIcon);
@@ -164,3 +178,91 @@ observer3.observe(document.body, {
 });
 
 
+function replaceCustomActionIcons() {
+    const buttons = document.querySelectorAll('.custom-actions .btn.btn-default.btn-sm.ellipsis');
+
+    buttons.forEach(btn => {
+        const label = btn.textContent.trim().toLowerCase();
+
+        // Remove existing SVG
+        const svg = btn.querySelector('svg');
+        if (svg) svg.remove();
+
+        // Prevent duplicate images
+        if (btn.querySelector('img')) return;
+
+        const img = document.createElement('img');
+        
+        img.style.height = "16px";
+        img.style.objectFit = "contain";
+        img.style.marginRight = "2px";
+
+        if (label.includes('full page')) {
+            img.src = "/assets/flowtech_ui/images/expand-solid-full.svg";
+            img.alt = "Full Page";
+            img.style.width = "17px";
+            img.style.height = "17px";
+        }
+        else if (label.includes('pdf')) {
+            img.src = "/assets/flowtech_ui/images/file-lines-solid-full.svg";
+            img.alt = "PDF";
+            
+            img.style.height = "17px";
+        }
+        else if (label.includes('refresh')) {
+            img.src = "/assets/flowtech_ui/images/reload.svg";
+            img.alt = "Refresh";
+        }
+        else {
+            return; // unknown button → do nothing
+        }
+
+        btn.insertBefore(img, btn.firstChild);
+    });
+}
+document.addEventListener('DOMContentLoaded', replaceCustomActionIcons);
+
+const observer4 = new MutationObserver(replaceCustomActionIcons)
+
+observer4.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+
+function replaceFormIcon() {
+    const formButtons = document.querySelectorAll(
+        '.standard-actions .page-icon-group button'
+    );
+
+    formButtons.forEach(btn => {
+        const title =
+            btn.getAttribute('data-original-title') ||
+            btn.getAttribute('title');
+
+        if (title !== 'Form') return;
+
+        const svg = btn.querySelector('svg');
+        if (svg) svg.remove();
+
+        // Prevent duplicate images
+        if (btn.querySelector('img')) return;
+
+        const img = document.createElement('img');
+        img.src = "/assets/flowtech_ui/images/form.svg";
+        img.alt = "Form";
+        img.style.width = "18px";
+        img.style.height = "18px";
+        img.style.objectFit = "contain";
+
+        btn.appendChild(img);
+    });
+}
+document.addEventListener('DOMContentLoaded', replaceFormIcon);
+
+const observerForm = new MutationObserver(replaceFormIcon)
+
+observerForm.observe(document.body, {
+    childList: true,
+    subtree: true
+});
