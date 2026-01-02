@@ -440,3 +440,20 @@ use.like-icon {
     background-size: contain;
     z-index: 9999;
 }
+.list-row-head
+{
+    background-color: #3271c2;
+    color: #fff;
+    border-radius: 4px;
+    .level-right
+    {
+        display: none;
+    }
+}
+.list-row
+{
+    .level-right
+    {
+        display: none;
+    }
+}
